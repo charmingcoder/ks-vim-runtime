@@ -7,6 +7,23 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
+
+" colorschememes
+Plug 'vim-scripts/peaksea'
+Plug 'ackyshake/Spacegray.vim'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/goyo.vim'
+
+"Plug 'itchyny/lightline.vim'
+
+Plug 'yegappan/mru'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " statusline
