@@ -3,10 +3,19 @@
 call plug#begin()
 " 底部状态栏statusline
 Plug 'vim-airline/vim-airline'
+" file navigation
 Plug 'scrooloose/nerdtree'
+
+" buffer
+Plug 'yegappan/mru'
+
 Plug 'scrooloose/nerdcommenter'
+" startup
 Plug 'mhinz/vim-startify'
+
+" search
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " colorschememes
 Plug 'vim-scripts/peaksea'
@@ -17,12 +26,13 @@ Plug 'junegunn/goyo.vim'
 
 "Plug 'itchyny/lightline.vim'
 
-Plug 'yegappan/mru'
-
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
+
+" 显示缩进线
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 

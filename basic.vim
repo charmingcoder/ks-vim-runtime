@@ -74,6 +74,7 @@ set hlsearch
 " 在程序中查询一单词，自动匹配单词的位置；
 " 如查询desk单词，当输到/d时，会自动找到第一个d开头的单词，当输入到/de时，会自动找到第一个以ds开头的单词，以此类推，进行查找；
 " 当找到要匹配的单词时，别忘记回车
+" 搜索逐字符高亮
 set incsearch
 
 " Don't redraw while executing macros (good performance config)
