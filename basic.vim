@@ -1,4 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 基础配置，必须首先加载；scheme的配置应该放在gui配置中
 " Sections
 "	-> General
 "	-> VIM user interface
@@ -43,6 +44,9 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" set hidden
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim User interface
