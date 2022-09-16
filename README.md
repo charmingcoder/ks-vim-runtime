@@ -661,6 +661,9 @@ LSP最重要的就是将语法分析、跳转、自动补全功能这些语言�
 
 #### coc.nvim插件
 
+github wiki文档：
+https://github.com/neoclide/coc.nvim/wiki
+
 ##### 1. 安装
 
 1. 安装nodejs
@@ -712,13 +715,114 @@ coc本身并不提供具体语言的补全功能，更多的只是提供一个�
 
 如```:CocInstall coc-json``` 支持JSON的子插件。
 
+
 要检索都有哪些子插件可以直接在[NPM上查找coc.vim](https://www.npmjs.com/search?q=keywords%3Acoc.miniBufExplMapWindowNavVim), 更好的是使用[coc-marketplace](https://github.com/fannheyward/coc-marketplace), 直接在VIM里面进行管理，安装命令如下：
 ```
 :CocInstall coc-marketplace
 ```
 
+安装后用```:CocList marketplace``` 打开面板，```Tab ```可对高亮的子插件进行安装卸载等操作。
+
+```
+# 打开面板
+:CocList marketplace
+
+# 搜索python相关子插件
+:CocList marketplace python
+```
+用上下键选择，按Tab进行对应操作
+
+常用的子插件列表 https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
+
+补充：
+
+查看当前安装的所有插件： ```:coclist extension ```
+	- 浏览 Ctrl+j/k navigate all extensions 
+	- 卸载，禁用插件等 Tab
+	- 退出: ESC
+	- 星号表示正在当前文件启用
+	- 方号表示已经安装, 只不过当前文件没有使用中
+
+5. coc常用配置
+
+Tab, Shift+Tab切换自动补全生效
+```
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use commmand ':verbose imap <tab>' to make sure tab is not mapped by 
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" : 
+	\ <SID>check_back_space() ? "\<TAB>" : 
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<c-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col -1] =~# '\s'
+endfunction
+
+```
+使用回车确认补全，而不是换行。
+```
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+	\ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+```
+
+下一个报错，上一个报错
+```
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+```
+
+查看函数定义，调用
+```
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+```
+
+ Shortcut | Action
+---|---
+``` Space y ``` | Get yank history list
+``` gd ``` | Go to definition
+``` gr ``` | List references 
+``` gi ``` | List implementation 
+``` gy ``` | Go to type definition 
 
 
+显示文档
+```
+" Use Leader+h to show documentation in preview window.
+nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+```
+
+highlighting相同单词，可以使用vim - illuminate
+```
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+```
+
+重命名
+```
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+```
 
 
 

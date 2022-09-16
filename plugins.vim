@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 " file navigation
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " buffer
 Plug 'yegappan/mru'
@@ -33,8 +34,16 @@ Plug 'junegunn/goyo.vim'
 
 "Plug 'itchyny/lightline.vim'
 
+" 代码片段引擎，类似vim-snipmate
 Plug 'SirVer/ultisnips'
+" 包含多种编程语言的代码片断文件，支持多种代码片段引擎
 Plug 'honza/vim-snippets'
+" LSP中的snip补全到vim中.Snip必须确认选中才能展开，菜单中
+" 将焦点移动到这个Snip上去之后，需要按Ctrl+y来展开
+" 可以换成Ctrl+o  inoremap <expr> <C-o> pumvisible() ? "\<C-y>" : "\<C-o>"
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+
 
 "Plug 'tpope/vim-surround'
 
@@ -55,6 +64,21 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NerdTree-git 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeIndicatorMapCustom = {
+     "Modified"  : "✹",
+     "Staged"    : "✚",
+     "Untracked" : "✭",
+     "Renamed"   : "➜",
+     "Unmerged"  : "═",
+     "Deleted"   : "✖",
+     "Dirty"     : "✗",
+     "Clean"     : "✔︎",
+     "Unknown"   : "?"
+     }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
