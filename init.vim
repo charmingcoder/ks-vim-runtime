@@ -12,3 +12,4 @@ source ~/.ks-vim-runtime/extended.vim
 
 " 
 colorscheme spacegray
+"colorscheme peaksea

@@ -22,7 +22,7 @@ Plug 'mhinz/vim-startify'
 
 " search
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " colorschememes
 Plug 'vim-scripts/peaksea'
@@ -35,20 +35,20 @@ Plug 'junegunn/goyo.vim'
 "Plug 'itchyny/lightline.vim'
 
 " 代码片段引擎，类似vim-snipmate
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 " 包含多种编程语言的代码片断文件，支持多种代码片段引擎
 Plug 'honza/vim-snippets'
 " LSP中的snip补全到vim中.Snip必须确认选中才能展开，菜单中
 " 将焦点移动到这个Snip上去之后，需要按Ctrl+y来展开
 " 可以换成Ctrl+o  inoremap <expr> <C-o> pumvisible() ? "\<C-y>" : "\<C-o>"
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+"Plug 'thomasfaingnaert/vim-lsp-snippets'
+"Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 
 "Plug 'tpope/vim-surround'
 
 " 显示缩进线
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -68,17 +68,18 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdTree-git 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeIndicatorMapCustom = {
-     "Modified"  : "✹",
-     "Staged"    : "✚",
-     "Untracked" : "✭",
-     "Renamed"   : "➜",
-     "Unmerged"  : "═",
-     "Deleted"   : "✖",
-     "Dirty"     : "✗",
-     "Clean"     : "✔︎",
-     "Unknown"   : "?"
-     }
+"let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+			\ "Modified"  : "✹",
+			\"Staged"    : "✚",
+			\"Untracked" : "✭",
+			\"Renamed"   : "➜",
+			\"Unmerged"  : "═",
+			\"Deleted"   : "✖",
+			\"Dirty"     : "✗",
+			\"Clean"     : "✔︎",
+			\"Unknown"   : "?"
+			\}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
